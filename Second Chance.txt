@@ -1,0 +1,28 @@
+int it;
+        boolean founded = false;
+        for (it = (pfi % vic) - 1; it >= 0; it--) {
+            if (refBit[i - 1][it].equals("0")) {
+                founded = true;
+                break;
+            }
+        }
+        Pages[i][(pfi % vic)] = Pages[i - 1][(pfi % vic)];
+        refBit[i][(pfi % vic)] = "0";
+        if (founded) {
+            for (int it3 = (pfi % vic) - 1; it3 > it; it3--) {
+                Pages[i][it3] = Pages[i - 1][it3];
+                refBit[i][it3] = refBit[i - 1][it3];
+            }
+            for (int it2 = it; it2 >= 1; it2--) {
+                Pages[i][it2] = Pages[i - 1][it2 - 1];
+                refBit[i][it2] = refBit[i - 1][it2 - 1];
+            }
+        } else {
+            int last;
+            for (last = 7; last >= (pfi % vic) + 1; last--) {
+                if (refBit[i - 1][last].equals("0")) {
+                    break;
+                }
+            }
+
+        }
